@@ -22,6 +22,10 @@ const routes: Routes = [
     path:'parameters',
     loadChildren: () => import('./modules/parameters/parameters.module').then(m => m.ParametersModule)
   },
+  {
+    path:'customer',
+    loadChildren: () => import('./modules/customer/customer.module').then(m => m.CustomerModule)
+  },
 
   /** this must be the last one */
   {
