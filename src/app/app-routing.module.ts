@@ -4,16 +4,25 @@ import { DefaultComponent } from './public/home/default/default.component';
 
 
 const routes: Routes = [
-  
+
   {
-    path:'home',
+    path: 'home',
     component: DefaultComponent
   },
   {
-    path:'',
+    path: '',
     pathMatch: 'full',
     redirectTo: '/home'
   },
+  {
+    path: 'security',
+    loadChildren: () => import('./modules/security/security.module').then(m => m.SecurityModule)
+  },
+  {
+    path:'parameters',
+    loadChildren: () => import('./modules/parameters/parameters.module').then(m => m.ParametersModule)
+  },
+
   /** this must be the last one */
   {
     path: '**',
