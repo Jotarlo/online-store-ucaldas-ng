@@ -7,16 +7,43 @@
                     <i class="material-icons prefix">assignment_ind</i>
                     <input id="document" formControlName="document" type="text">
                     <label for="document">Document</label>
+                    <div class="warning-validator" *ngIf="fgv.document.errors && (fgv.document.dirty || fgv.document.touched)">
+                        <strong *ngIf="fgv.document.errors.required">
+                            This field is required.
+                        </strong>
+                        <strong *ngIf="fgv.document.errors.minlength">
+                            This field must be at least {{documentMinLength}} long.
+                        </strong>
+                    </div>
                 </div>
                 <div class="input-field col s3">
                     <i class="material-icons prefix">phone</i>
                     <input formControlName="phone" id="cellphone" type="text">
                     <label for="cellphone">Cellphone</label>
+                    <div class="warning-validator" *ngIf="fgv.phone.errors && (fgv.phone.dirty || fgv.phone.touched)">
+                        <strong *ngIf="fgv.phone.errors.required">
+                            This field is required.
+                        </strong>
+                        <strong *ngIf="fgv.phone.errors.minlength">
+                            This field must be at least 12 long.
+                        </strong>
+                        <strong *ngIf="fgv.phone.errors.maxlength">
+                            This field must be maximum 14 long.
+                        </strong>
+                    </div>
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">email</i>
                     <input formControlName="email" id="email" type="email">
                     <label for="email">Email</label>
+                    <div class="warning-validator" *ngIf="fgv.email.errors && (fgv.email.dirty || fgv.email.touched)">
+                        <strong *ngIf="fgv.email.errors.required">
+                            This field is required.
+                        </strong>
+                        <strong *ngIf="fgv.email.errors.email">
+                            This field must be a correct email format.
+                        </strong>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -24,11 +51,27 @@
                     <i class="material-icons prefix">account_circle</i>
                     <input formControlName="name" id="first_name" type="text">
                     <label for="first_name">First Name</label>
+                    <div class="warning-validator" *ngIf="fgv.name.errors && (fgv.name.dirty || fgv.name.touched)">
+                        <strong *ngIf="fgv.name.errors.required">
+                            This field is required.
+                        </strong>
+                        <strong *ngIf="fgv.name.errors.minlength">
+                            This field must be at least 2 characters long.
+                        </strong>
+                    </div>
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">account_circle</i>
                     <input formControlName="lastname" id="last_name" type="text">
                     <label for="last_name">Last Name</label>
+                    <div class="warning-validator" *ngIf="fgv.lastname.errors && (fgv.lastname.dirty || fgv.lastname.touched)">
+                        <strong *ngIf="fgv.lastname.errors.required">
+                            This field is required.
+                        </strong>
+                        <strong *ngIf="fgv.lastname.errors.minlength">
+                            This field must be at least 2 characters long.
+                        </strong>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -36,16 +79,32 @@
                     <i class="material-icons prefix">map</i>
                     <input formControlName="city" id="city" type="text">
                     <label for="city">City</label>
+                    <div class="warning-validator" *ngIf="fgv.city.errors && (fgv.city.dirty || fgv.city.touched)">
+                        <strong *ngIf="fgv.city.errors.required">
+                            This field is required.
+                        </strong>
+                        <strong *ngIf="fgv.city.errors.minlength">
+                            This field must be at least 3 characters long.
+                        </strong>
+                    </div>
                 </div>
                 <div class="input-field col s8">
                     <i class="material-icons prefix">add_location</i>
                     <input formControlName="address" id="address" type="text">
                     <label for="address">Address</label>
+                    <div class="warning-validator" *ngIf="fgv.address.errors && (fgv.address.dirty || fgv.address.touched)">
+                        <strong *ngIf="fgv.address.errors.required">
+                            This field is required.
+                        </strong>
+                        <strong *ngIf="fgv.address.errors.minlength">
+                            This field must be at least 5 characters long.
+                        </strong>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <button (click)="CustomerRegisterFn()" class="btn btn-large btn-register waves-effect waves-light" type="submit"
+                    <button (click)="CustomerRegisterFn()" class="btn btn-large btn-register waves-effect waves-light" type="button"
                         name="action">Register
                         <i class="material-icons right">done</i>
                     </button>

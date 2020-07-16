@@ -29,7 +29,8 @@
             ],
             "scripts": [
               "node_modules/materialize-css/dist/js/materialize.min.js",
-              "src/assets/scripts/materialize-init.js"
+              "src/assets/scripts/materialize-init.js",
+              "src/assets/scripts/general-functions.js"
             ]
           },
           "configurations": {
@@ -123,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "OnlineStoreNG"
+    }
+  },
+  "defaultProject": "OnlineStoreNG",
+  "cli": {
+    "analytics": false
+  }
 }
