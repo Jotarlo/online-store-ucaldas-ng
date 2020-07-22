@@ -1,10 +1,12 @@
 <nav>
-    <div class="nav-wrapper blue">
-      <a href="#" class="brand-logo">Logo</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a routerLink="/security/login">Login</a></li>
-        <li><a routerLink="/customer/register">Register</a></li>
-        <li><a routerLink="/general/about-us">About us</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div class="nav-wrapper blue">
+    <a href="#" class="brand-logo">Logo</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li *ngIf="!isLogged"><a routerLink="/security/login">Login</a></li>
+      <li *ngIf="isLogged"><a routerLink="/security/logout">Logout</a></li>
+      <li *ngIf="isLogged"><a routerLink="/security/change-password">Change Password</a></li>
+      <li *ngIf="!isLogged"><a routerLink="/customer/register">Register</a></li>
+      <li><a routerLink="/general/about-us">About us</a></li>
+    </ul>
+  </div>
+</nav>

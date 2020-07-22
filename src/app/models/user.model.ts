@@ -4,4 +4,6 @@ export class UserModel {
     password?: String;
     customerId?: String;
     role?: number;
+    token?: String;
+    isLogged: Boolean = false;
 }
