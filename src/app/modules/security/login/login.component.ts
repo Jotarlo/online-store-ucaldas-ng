@@ -7,6 +7,7 @@ import { SecurityService } from '../../../services/security.service';
 import MD5 from 'crypto-js/md5';
 
 declare const showMessage: any;
+declare const initSidenav: any;
 
 @Component({
   selector: 'app-login',
@@ -46,7 +47,7 @@ export class LoginComponent implements OnInit {
       this.service.CustomerLogin(model).subscribe(
         data => {
           this.service.saveSessionData(data);
-          showMessage("Welcome to your account.");
+          //showMessage("Welcome to your account.");
           this.router.navigate(['/home']);
         },
         error => {

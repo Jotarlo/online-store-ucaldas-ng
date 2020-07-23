@@ -6,4 +6,11 @@ function showMessage(message) {
     instance.open();
 }
 
+function showRemoveConfirmationWindow(message) {
+    //alert(message);
+    let elem = document.querySelector('#removeConfirmationModal');
+    let instance = M.Modal.init(elem, {});
+    instance.open();
+}
+
 //alert('Hi');
