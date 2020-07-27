@@ -1,4 +1,5 @@
-<a routerLink="/parameters/category-creation"  class="waves-effect waves-light btn"><i class="material-icons left">add</i>New Record</a>
+<a routerLink="/parameters/category-creation" class="waves-effect waves-light btn"><i
+        class="material-icons left">add</i>New Record</a>
 <br />
 <br />
 <table class="highlight responsive-table">
@@ -27,10 +28,11 @@
                 {{r.name}}
             </td>
             <td>
-                <a routerLink="/parameters/category-edition/{{r.id}}" routerLinkActive="router-link-active"  class="waves-effect waves-light btn"><i class="material-icons left">edit</i>Edit</a>
+                <a routerLink="/parameters/category-edition/{{r.id}}" routerLinkActive="router-link-active"
+                    class="waves-effect waves-light btn"><i class="material-icons left">edit</i>Edit</a>
             </td>
             <td>
-                <button (click)="RemoveConfirmation(r.id)" class="btn red waves-effect waves-light" type="button" >Remove
+                <button (click)="RemoveConfirmation(r.id)" class="btn red waves-effect waves-light" type="button">Remove
                     <i class="material-icons left">delete</i>
                 </button>
             </td>
@@ -42,11 +44,13 @@
 <!-- Modal Structure -->
 <div id="removeConfirmationModal" class="modal">
     <div class="modal-content">
-      <h4>Remove Confirmation</h4>
-      <p >Are you sure remove this record?</p>
+        <h4>Remove Confirmation</h4>
+        <p>Are you sure remove this record?</p>
     </div>
     <div class="modal-footer">
-        <a class="modal-close waves-effect waves-green btn-flat">Confirm</a>
-      <a class="modal-close red waves-effect waves-green btn-flat">Close</a>
+        <button (click)="RemoveRecord()" class="btn red waves-effect waves-light" type="button">Confirm
+            <i class="material-icons left">delete</i>
+        </button>
+        <a class="modal-close waves-effect waves-green btn-flat">Close</a>
     </div>
-  </div>
+</div>

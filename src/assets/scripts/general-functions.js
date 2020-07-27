@@ -13,4 +13,10 @@ function showRemoveConfirmationWindow(message) {
     instance.open();
 }
 
+function closeAllModal() {
+    let elem = document.querySelectorAll('.modal');
+    let instances = M.Modal.init(elem, {});
+    instances.close();
+}
+
 //alert('Hi');

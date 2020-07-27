@@ -3,3 +3,10 @@
 .warning-validator strong{
     color: red;
   }
+
+
+ legend{
+  font-size: 2em;
+  color: #545454;
+  margin: 0px 20px 0px 20px;
+}
