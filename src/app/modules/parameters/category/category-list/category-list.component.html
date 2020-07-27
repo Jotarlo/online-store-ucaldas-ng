@@ -19,7 +19,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let r of recordList">
+        <tr *ngFor="let r of recordList | paginate: { itemsPerPage: itemsPageAmount, currentPage: page }">
             <td>
                 {{r.code}}
             </td>
@@ -37,7 +37,8 @@
         </tr>
     </tbody>
 </table>
-
+<pagination-controls (pageChange)="page = $event"></pagination-controls>
+<ngx-spinner></ngx-spinner>
 <!-- Modal Structure -->
 <div id="removeConfirmationModal" class="modal">
     <div class="modal-content">
