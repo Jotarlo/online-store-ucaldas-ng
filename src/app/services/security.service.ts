@@ -4,6 +4,7 @@ import { UserModel } from '../models/security/user.model';
 import { ServiceConfig } from '../config/service-config';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { PasswordResetModel } from '../models/security/password-reset.model';
+import { ChangePasswordModel } from '../models/security/change-password.model';
 
 @Injectable({
   providedIn: 'root'
@@ -58,6 +59,15 @@ export class SecurityService {
     });
   }
 
+
+  ChangePassword(data: ChangePasswordModel): Observable<any> {
+    return this.http.post<any>(`${ServiceConfig.BASE_URL}change-password`, data, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.getToken()}`
+      })
+    });
+  }
+
   /**
    * save session data
    * @param sessionData user data and token
@@ -106,6 +116,11 @@ export class SecurityService {
   getToken(): String {
     let currentSession = JSON.parse(this.getSessionData());
     return currentSession.token;
+  }
+
+  getUserId(): String {
+    let currentSession = JSON.parse(this.getSessionData());
+    return currentSession.id;
   }
 
   /**
