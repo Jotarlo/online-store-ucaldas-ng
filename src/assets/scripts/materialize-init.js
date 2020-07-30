@@ -5,3 +5,10 @@ document.addEventListener('DOMContentLoaded', function () {
         inDuration: 100
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, {
+        
+    });
+});

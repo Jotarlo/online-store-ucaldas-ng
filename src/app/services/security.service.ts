@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { UserModel } from '../models/user.model';
+import { UserModel } from '../models/security/user.model';
 import { ServiceConfig } from '../config/service-config';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { PasswordResetModel } from '../models/security/password-reset.model';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +51,13 @@ export class SecurityService {
     });
   }
 
+
+  PasswordReset(data: PasswordResetModel): Observable<any> {
+    return this.http.post<any>(`${ServiceConfig.BASE_URL}password-reset`, data, {
+      headers: new HttpHeaders({})
+    });
+  }
+
   /**
    * save session data
    * @param sessionData user data and token
@@ -81,7 +89,21 @@ export class SecurityService {
     return currentSession;
   }
 
-  getToken():String{
+  sessionExist(): Boolean {
+    let currentSession = this.getSessionData();
+    return (currentSession) ? true : false;
+  }
+
+  /**
+   * verify if user in session has the role of parameter
+   * @param roleId role id to verify
+   */
+  VerifyRoleInSession(roleId): Boolean {
+    let currentSession = JSON.parse(this.getSessionData());
+    return (currentSession.role == roleId);
+  }
+
+  getToken(): String {
     let currentSession = JSON.parse(this.getSessionData());
     return currentSession.token;
   }

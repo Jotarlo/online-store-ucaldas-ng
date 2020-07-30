@@ -1,4 +1,4 @@
-import { UserModel } from "./user.model";
+import { UserModel } from "./security/user.model";
 
 export class CustomerModel{
     id?: String;
