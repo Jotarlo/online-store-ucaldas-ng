@@ -24,6 +24,9 @@
             Category
         </td>
         <td>
+            Images
+        </td>
+        <td>
             Edit
         </td>
         <td>
@@ -50,6 +53,10 @@
         </td>
         <td>
             {{r.category.name}}
+        </td>
+        <td>
+            <a routerLink="/products/product-images/{{r.id}}" routerLinkActive="router-link-active"
+                class="waves-effect waves-light btn orange"><i class="material-icons left">edit</i>Images</a>
         </td>
         <td>
             <a routerLink="/products/product-edition/{{r.id}}" routerLinkActive="router-link-active"

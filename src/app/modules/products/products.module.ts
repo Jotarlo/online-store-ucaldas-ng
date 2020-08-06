@@ -10,10 +10,11 @@ import { ProductDetailsComponent } from './public/product-details/product-detail
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ProductImagesComponent } from './admin/product-images/product-images.component';
 
 
 @NgModule({
-  declarations: [ProductCreationComponent, ProductEditionComponent, ProductListComponent, ProductListHomeComponent, ProductDetailsComponent],
+  declarations: [ProductCreationComponent, ProductEditionComponent, ProductListComponent, ProductListHomeComponent, ProductDetailsComponent, ProductImagesComponent],
   imports: [
     CommonModule,
     ProductsRoutingModule,
