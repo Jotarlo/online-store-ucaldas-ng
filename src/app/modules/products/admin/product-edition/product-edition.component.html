@@ -1,0 +1,88 @@
+<fieldset>
+    <legend>Product Edition</legend>
+    <div class="row">
+        <form class="col s12" [formGroup]="fgValidator">
+            <input type="hidden" formControlName="id" />
+            <div class="row">
+                <div class="input-field col s2">
+                    <input id="code" formControlName="code" type="text" class="validate">
+                    <label class="active" for="code">Code</label>
+                    <div class="warning-validator" *ngIf="fgv.code.errors && (fgv.code.dirty || fgv.code.touched)">
+                        <strong>
+                            This field is required.
+                        </strong>
+                    </div>
+                </div>
+                <div class="input-field col s5">
+                    <input id="name" formControlName="name" type="text" class="validate">
+                    <label class="active" for="name">Product Name</label>
+                    <div class="warning-validator" *ngIf="fgv.name.errors && (fgv.name.dirty || fgv.name.touched)">
+                        <strong>
+                            This field is required.
+                        </strong>
+                    </div>
+                </div>
+                <div class="input-field col s5">
+                    <input id="price" formControlName="price" type="text" class="validate">
+                    <label class="active" for="price">Price</label>
+                    <div class="warning-validator" *ngIf="fgv.price.errors && (fgv.price.dirty || fgv.price.touched)">
+                        <strong>
+                            This field is required.
+                        </strong>
+                    </div>
+                </div>
+                <div class="input-field col s12">
+                    <input id="description" formControlName="description" type="text" class="validate">
+                    <label class="active" for="description">Description</label>
+                    <div class="warning-validator"
+                        *ngIf="fgv.description.errors && (fgv.description.dirty || fgv.description.touched)">
+                        <strong>
+                            This field is required.
+                        </strong>
+                    </div>
+                </div>
+                <div class="input-field col s2">
+                    <input id="stock" formControlName="stock" type="number" class="validate">
+                    <label class="active" for="stock">Stock</label>
+                    <div class="warning-validator" *ngIf="fgv.stock.errors && (fgv.stock.dirty || fgv.stock.touched)">
+                        <strong>
+                            This field is required.
+                        </strong>
+                    </div>
+                </div>
+                <div class="input-field col s2">
+                    <input id="rate" formControlName="rate" type="number" class="validate">
+                    <label class="active" for="rate">Rate</label>
+                    <div class="warning-validator" *ngIf="fgv.rate.errors && (fgv.rate.dirty || fgv.rate.touched)">
+                        <strong>
+                            This field is required.
+                        </strong>
+                    </div>
+                </div>
+                <div class="input-field col s4">
+                    <select class="browser-default" formControlName="categoryId">
+                        <option *ngFor="let category of categoryList" value="{{category.id}}">{{category.name}}</option>
+                    </select>
+                    <!--<label>Category</label>-->
+                </div>
+                <div class="input-field col s4">
+                    <select class="browser-default" formControlName="brandId">
+                        <option *ngFor="let brand of brandList" value="{{brand.id}}">{{brand.name}}</option>
+                    </select>
+                    <!--<label>Brand</label>-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <button class="btn waves-effect waves-light" type="button" (click)="editRecordFn()"
+                        name="action">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                    &nbsp;&nbsp;
+                    <a routerLink="/products/product-list" class="waves-effect waves-light btn red"><i
+                            class="material-icons right">cancel</i>Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</fieldset>
