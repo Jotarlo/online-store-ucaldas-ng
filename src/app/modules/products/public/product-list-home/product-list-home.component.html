@@ -1,1 +1,17 @@
-<p>product-list-home works!</p>
+
+<div class="row">
+    <div *ngFor="let p of productList" class="col s4 m6">
+        <div class="card">
+            <div class="card-image">
+                <img src="http://localhost:3000/files/2/{{p.images[0].id}}" class="productImage" />
+                <span class="card-title">Name: {{p.name}}</span>
+            </div>
+            <div class="card-content">
+                <button class="btn waves-effect waves-light" (click)="OpenDetails(p.id)" type="button"
+                    name="action">Details
+                    <i class="material-icons right">pageview</i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>-->

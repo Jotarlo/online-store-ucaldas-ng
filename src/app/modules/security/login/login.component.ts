@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
       console.log(model);
       this.service.CustomerLogin(model).subscribe(
         data => {
+          console.log(data);
           this.service.saveSessionData(data);
           //showMessage("Welcome to your account.");
           this.router.navigate(['/home']);

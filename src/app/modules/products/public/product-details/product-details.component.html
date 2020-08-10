@@ -1,1 +1,46 @@
-<p>product-details works!</p>
+<div class="row">
+    <div class="col lg4 sm4">
+        <img *ngFor="let i of images" class="materialboxed"
+            data-caption="A picture of a way with a group of trees in a park" width="250"
+            src="http://localhost:3000/files/2/{{i.id}}">
+    </div>
+</div>
+<h6>{{productDetails.description}}</h6>
+<table>
+    <thead>
+        <tr>
+            <td>
+                Name
+            </td>
+            <td>
+                Price
+            </td>
+            <td>
+                Category
+            </td>
+            <td>
+                Brand
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                {{productDetails.name}}
+            </td>
+            <td>
+                {{productDetails.price}}
+            </td>
+            <td>
+                {{productDetails.category.name}}
+            </td>
+            <td>
+                {{productDetails.brand.name}}
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<button (click)="AddToShoppingCart()" class="btn red waves-effect waves-light" type="button">Add
+    <i class="material-icons left">add_shopping_cart</i>
+</button>

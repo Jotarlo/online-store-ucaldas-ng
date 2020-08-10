@@ -22,6 +22,9 @@ import { ProductImagesComponent } from './admin/product-images/product-images.co
     NgxSpinnerModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  exports:[
+    ProductListHomeComponent
   ]
 })
 export class ProductsModule { }

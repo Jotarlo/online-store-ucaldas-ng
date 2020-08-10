@@ -77,13 +77,17 @@ export class SecurityService {
     if (currentSession) {
       return false;
     } else {
+      console.log("Sessión Data")
+      console.log(sessionData);
+
       let data: UserModel = {
         id: sessionData.data.id,
         customerId: sessionData.data.customerId,
         username: sessionData.data.username,
         role: sessionData.data.role,
         token: sessionData.token,
-        isLogged: true
+        isLogged: true,
+        cartId: sessionData.data.cartId
       };
       localStorage.setItem('session', JSON.stringify(data));
       this.setUserData(data);
@@ -114,13 +118,22 @@ export class SecurityService {
   }
 
   getToken(): String {
-    let currentSession = JSON.parse(this.getSessionData());
-    return currentSession.token;
+    let sessionData = this.getSessionData();
+    let currentSession = '';
+    if (sessionData) {
+      currentSession = JSON.parse(sessionData).token;
+    }
+    return currentSession;
   }
 
   getUserId(): String {
     let currentSession = JSON.parse(this.getSessionData());
     return currentSession.id;
+  }
+
+  getCartId(): String {
+    let currentSession = JSON.parse(this.getSessionData());
+    return currentSession.cartId;
   }
 
   /**

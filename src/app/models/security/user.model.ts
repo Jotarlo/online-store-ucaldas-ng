@@ -6,4 +6,5 @@ export class UserModel {
     role?: number;
     token?: String;
     isLogged: Boolean = false;
+    cartId?: String;
 }

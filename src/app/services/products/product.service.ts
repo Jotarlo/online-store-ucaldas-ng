@@ -11,7 +11,7 @@ import { SecurityService } from '../security.service';
 export class ProductService {
   entity = 'product';
   token: String = '';
-  filter: String = '?filter={"include":[{"relation":"category"},{"relation":"brand"}]}';
+  filter: String = '?filter={"include":[{"relation":"category"},{"relation":"brand"},{"relation":"images"}]}';
 
   constructor(private http: HttpClient, private securityService: SecurityService) {
     this.token = this.securityService.getToken();
@@ -29,7 +29,7 @@ export class ProductService {
    * @param id id to search
    */
   getRecordById(id: String): Observable<ProductModel> {
-    return this.http.get<ProductModel>(`${ServiceConfig.BASE_URL}${this.entity}/${id}`);
+    return this.http.get<ProductModel>(`${ServiceConfig.BASE_URL}${this.entity}/${id}${this.filter}`);
   }
 
   /**
@@ -57,6 +57,18 @@ export class ProductService {
     return this.http.delete(`${ServiceConfig.BASE_URL}${this.entity}/${recordId}`, {
       headers: new HttpHeaders({
         Authorization: `Bearer ${this.token}`
+      })
+    });
+  }
+
+  addToShoppingCart(cartId, productId) {
+    return this.http.post<ProductModel>(`${ServiceConfig.BASE_URL}${this.entity}`, {
+      productId: productId,
+      cartId: cartId
+    }, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.token}`
       })
     });
   }
